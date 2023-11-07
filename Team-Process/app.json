@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/home  page/home page" ,
+    "pages/sell/sell",
+    "pages/select/select",
+    "pages/rent/rent",
+    "pages/exchange/excange",
+    "pages/donation/donation",
+    "pages/community/community",
+    "pages/my/my",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FAFFDE",
+    "navigationBarTitleText": "大学生闲置物品",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

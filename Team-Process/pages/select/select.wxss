@@ -1,1 +1,35 @@
 /* pages/select/select.wxss */
+/*指示头*/
+.rent-title
+{
+  width:100%;
+  height:60px;
+  background-color: #7CC083;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.rent-titleText{
+  position: absolute;
+  top:2%;
+  left:50%;
+  transform: translate(-50%,0%);
+  color: #E3E2CD;
+  font-size: 20px;
+}
+
+/*搜索*/
+.sousuo{
+  position:absolute;
+  margin: 20px;
+  left:45%;
+  transform: translate(-50%,0%);
+  width: 319px;
+  height:50px;
+  border-color:#B1D9B5;
+  border-width: 12px;
+  box-shadow:0px 2px 7px #B1D9B5;
+  border-radius: 20px;
+}
+
+/*物品显示*/
+.kuang

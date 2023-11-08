@@ -19,10 +19,10 @@
 </view>
 
 <view class="Inputxin">
-  <textarea rows="4" cols="10" placeholder="请输入名称"></textarea>
-  <textarea placeholder="请输入价格"></textarea>
-  <textarea rows="4" cols="10" placeholder="请输入信息"></textarea>
-  <textarea rows="4" cols="10" placeholder="请填入联系方式，便于交易完成"></textarea>
+  <textarea  id="name" rows="4" cols="10" placeholder="请输入名称" bindinput="input"></textarea>
+  <textarea  id="money" placeholder="请输入价格" bindinput="input"></textarea>
+  <textarea  id="message" rows="4" cols="10" placeholder="请输入信息" bindinput="input"></textarea>
+  <textarea id="relax" rows="4" cols="10" placeholder="请填入联系方式，便于交易完成" bindinput="input"></textarea>
 </view>
 
 <!--确定，将数据后端-->

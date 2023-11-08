@@ -1,2 +1,9 @@
 <!--pages/select/select.wxml-->
-<text>pages/select/select.wxml</text>
+<canvas type="2d" class="rent-title"></canvas>
+<text class="rent-titleText"> 好物待选</text>
+<!--搜索-->
+<input placeholder="请输入搜索的物品名称" class="sousuo"></input>
+
+<!--物品显示-->
+<canvas type="2d" class="kuang"></canvas>
+

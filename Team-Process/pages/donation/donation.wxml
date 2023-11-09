@@ -1,2 +1,32 @@
 <!--pages/donation/donation.wxml-->
-<text>pages/donation/donation.wxml</text>
+<!--pages/sell/sell.wxml-->
+<canvas type="2d" class="rent-title"></canvas>
+<text class="rent-titleText"> 上门预约</text>
+
+<!--商品信息填写-->
+<view class="xinxi">
+<text>商品名称：</text>
+<text>商品信息:</text>
+<text>地址信息:</text>
+<text>上门时间:</text>
+<text>预估重量：</text>
+<text>联系方式:</text>
+</view>
+
+<view class="Inputxin">
+  <textarea  id="name" rows="4" cols="10" placeholder="请输入名称" bindinput="input"></textarea>
+  <textarea  id="money" placeholder="请输入商品信息" bindinput="input"></textarea>
+  <textarea  id="message" rows="4" cols="10" placeholder="请输入入门地址" bindinput="input"></textarea>
+  <!--选择时间-->
+  <view>
+  <picker mode="multiSelector" range="{{multiArray}}" bindchange="onMultiPickerChange">
+    <view class="picker">
+     {{selectedValue}}
+    </view>
+  </picker>
+</view>
+<textarea id="relax" rows="4" cols="10" placeholder="请填入预估重量，便于收取物品工具的选择" bindinput="input"></textarea>
+  <textarea id="relax" rows="4" cols="10" placeholder="请填入联系方式，便于交易完成" bindinput="input"></textarea>
+</view>
+<!--确定，将数据后端-->
+<button class="ok" bindtap="ok">确定出售</button>

@@ -5,16 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    search :[{'name':'充电宝','img':'/image/思维导图.jpg','term':'待出租','way':'2r/day'},{'name':'naa','img':'/image/样式.jpg','term':'待出售','way':'59r'},{'name':'naa','img':'/image/样式.jpg','term':'待出售','way':'59r'},{'name':'naa','img':'/image/样式.jpg','term':'待出售','way':'59r'},{'name':'充电宝','img':'/image/思维导图.jpg','term':'待出租','way':'2r/day'}],
+    height:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let screenHeight = wx.getSystemInfoSync().windowHeight;
+    this.setData({
+      height: screenHeight - 380,
+    })
   },
-
+  select()
+  {
+    wx.navigateTo({
+      url: '/pages/display/display',
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

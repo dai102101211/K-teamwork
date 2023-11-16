@@ -1,0 +1,45 @@
+.hua{
+  padding-top: 0px;
+  swiper{
+    height: 225px;
+    swiper-item{
+      image{
+        height: 200px;
+        width: 355px;
+        border-radius: 30rpx;
+      }
+    }
+  }
+}
+.queren{
+  top: 575px;
+  left: 65%;
+}
+
+.bottom{
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  border-radius: 30rpx;
+  height: 375px;
+  border: 1px double black;
+ 
+  .shuru{
+    width: 60%;
+    border: 1px double yellowgreen;
+    border-radius: 10rpx;
+  }
+  
+  .queren{
+    top: 10%;
+    left: 65%;
+  }
+  .quxiao{
+    top: 10%;
+    right: 5%;
+  }
+}
+
+

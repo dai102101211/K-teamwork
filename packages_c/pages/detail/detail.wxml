@@ -1,0 +1,54 @@
+<!--pages/detail/detail.wxml-->
+
+<view class="coat">
+    <!-- 抬头，现已不用 -->
+    <!-- 
+      <view class="back">
+      <text class="title">精彩有趣</text>
+      </view>
+     -->
+    <!-- 用户信息 -->
+    <view class="user">
+        <image class="head" bindtap="click_home" data-user="{{user}}" src="{{user.head}}" />
+        <view class="name" bindtap="click_home" data-user="{{user}}" >{{user.nickname}}</view>
+        <view class="time">{{post.time}}</view>
+    </view>
+    <!-- 帖子详情 -->
+    <scroll-view class="detail" scroll-y="{{true}}">
+        <view class="Dtitle">{{post.title}}</view>
+        <view class="Dcontent">{{post.content}}</view>
+        <view wx:for="{{post.img}}" wx:for-item="Mitem" wx:key="index" >
+            <image class="Dimg" src="{{Mitem}}" mode="aspectFit" />
+        </view>
+        <scroll-view class="Dtag" scroll-x="{{true}}" >
+          <!-- 点击tag可进入相应的话题---通过搜索方式 -->
+            <view hover-class="click_tag" bindtap="click_tag" data-text="{{item}}" class="tag" wx:for="{{post.tag}}" wx:key="index">#{{item}}</view>
+        </scroll-view>
+    </scroll-view>
+    <view class="opera">
+      <view class="zan">
+        <image bindtap="zan" data-index="{{index}}" class="zan_img" src="{{post.zan.img}}" />
+        <text class="zan_num">{{post.zan.num}}</text>
+      </view>
+      <!-- 点击评论按钮弹出输入框与键盘 -->
+      <image class="dcmt" bindtap="go_cmt" src="/icons/评论.png" />
+      
+    </view>
+    <!-- 评论区 -->
+    <scroll-view class="comment" scroll-y="{{true}}">
+        <view class="C_obj" wx:for="{{post.cmt}}" wx:for-item="Citem" wx:key="index" >
+            <!-- 用户信息 -->
+            <image class="C_head" src="{{Citem.head}}"/>
+            <view class="C_name" >{{Citem.nickname}}</view>
+            <view class="C_content">{{Citem.content}}</view>
+            <view class="C_time">{{Citem.time}}</view>
+        </view>
+    </scroll-view>
+    <!-- 输入框布局 -->
+    <view class="input_section" wx:if="{{isShowInput}}">
+        <!-- 输入文本框，最多不超过50字 -->
+        <input class="input_input" bindinput="write_cmt" bindblur="HideInput" model:value="{{inputMessage}}" focus="auto" placeholder="友善发言~(｡ò ∀ ó｡)~"  	maxlength="50" />
+        <!-- 发送按钮 -->
+        <button style="height:110rpx;width:170rpx;display:flex; align-items: center;justify-content: center;size:mini; background-color: rgb(91, 212, 91); color: white; font-size: 32rpx;" hover-class="hover" bindtap="up_cmt" >发布</button>
+      </view>
+</view>

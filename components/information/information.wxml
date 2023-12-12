@@ -1,0 +1,39 @@
+ <view class="massges" hidden="{{isHidden}}">
+ <view class="icon-small-wrp">
+    <icon class="icon-small" type="cancel" size="23" color="black" bind:tap="hidepopups"></icon>
+ </view>
+ <view class="buyer">
+  <view class="tx">
+   <text style="color: #7cc083;">------------ 买家名片 ------------</text>
+  </view>
+  <view class="massge">
+    <text>姓名：</text>
+    <view class="buyername">{{message.buyerName}}</view>
+  </view>
+  <view class="massge">
+    <text>联系方式：</text>
+    <view class="buyercontact">{{message.buyerContact}}</view>
+  </view>
+  <view class="massge">
+    <text>地址信息：</text>
+    <view class="buyeraddress">{{message.buyerAddress}}</view>
+  </view>
+ </view>
+ <view class="seller">
+  <view class="tx">
+   <text  style="color: #7cc083;">------------ 卖家名片 ------------</text>
+  </view>
+  <view class="massge">
+    <text>姓名：</text>
+    <view class="sellername">{{message.sellerName}}</view>
+  </view>
+  <view class="massge">
+    <text>联系方式：</text>
+    <view class="sellercontact">{{message.sellerContact}}</view>
+  </view>
+  <view class="massge">
+    <text>地址信息：</text>
+    <view class="selleraddress">{{message.sellerAddress}}</view>
+  </view>
+ </view>
+</view>

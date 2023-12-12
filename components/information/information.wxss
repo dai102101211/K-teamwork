@@ -1,0 +1,54 @@
+
+.massges{
+  display: flex;
+  flex-direction:column ;
+  justify-content: space-between;
+  position:fixed;
+  border: 1px solid black;
+  width: 600rpx;
+  height: 800rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  left: 75rpx;
+  overflow: hidden;
+}
+.buyer{
+  width: 600rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction:column ;
+  justify-content: space-between;
+}
+.seller{
+  width: 600rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction:column ;
+  justify-content: space-between;
+}
+.tx{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.massge{
+  margin: 20rpx;
+  display: flex;
+}
+
+.massge text{
+  width: 180rpx;
+}
+
+.massge view{
+  text-align: center;
+  width: 420rpx;
+  border: 1px solid black;
+  border-radius: 16rpx;
+}
+
+.icon-small{
+  position: relative;
+  left: 555rpx;
+}

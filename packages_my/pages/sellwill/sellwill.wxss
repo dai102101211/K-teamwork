@@ -1,0 +1,160 @@
+.container{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.topbg{
+  width: 100%;
+  height: 200rpx;
+  background-color: #7cc083;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  position: absolute;
+  top: 0;
+}
+
+.userinfo-avatar{
+  position: absolute;
+  top:100rpx;
+  left:20rpx;
+  overflow: hidden;
+  width: 170rpx;
+  height: 170rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.username{
+  color: white;
+  width: 480rpx;
+  height: 40rpx;
+}
+.credibility{
+  width: 480rpx;
+  height: 40rpx;
+}
+
+.user_box1{
+  position: absolute;
+  left: 220rpx;
+  top: 160rpx;
+  width: 480rpx;
+  height: 80rpx;
+}
+
+.listbg{
+  border-radius: 48rpx;
+  min-height: 275vh;
+  background-color: #B1D9B5;
+  width: 100%;
+  position: absolute;
+  top: 340rpx;
+}
+
+.sellimg{
+  height: 200rpx;
+  width: 200rpx;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 240rpx;
+}
+
+.sellimg image{
+  height: 250rpx;
+  width: 250rpx;
+  border-radius: 50%;
+  margin: -20rpx;
+}
+
+
+.list{
+  position: absolute;
+  top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.onm{
+  display: flex;
+}
+
+.card{
+  background-color: #ffffff;
+  width: 660rpx;
+  height: 400rpx;
+  margin:45rpx;
+  border: 1px solid black;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.card button{
+  background-color:#B1D9B5 ;
+  color: white;
+}
+.card button:active{
+  background-color:#B1D9B5 ;
+  box-shadow: 4px 4px 24px #7a927d;
+  color: white;
+}
+
+.list image{
+  height: 200rpx;
+  width: 200rpx;
+  position:relative;
+  left: 30rpx;
+  top: 50rpx;
+}
+
+.list text{
+  display: flex;
+  margin: 30rpx;
+  margin-left: -10rpx;
+  position: relative;
+  top: -150rpx;
+  left: 280rpx;
+  font-size: 40rpx;
+}
+
+.status {
+  background-color: #B1D9B5;
+  width: 260rpx;
+  height: 560rpx;
+  position: relative;
+  top: -382rpx;
+  left: 320rpx;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.status text{
+  position: relative;
+  left: -5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.t {
+  font-size: 30rpx;
+}
+
+.f {
+  height: 30rpx;
+  font-size: 25rpx;
+}
+
+.ed {
+  position: relative;
+  top: 20rpx;
+  left: 60rpx;
+}
+
+.will{
+  color: #7cc083;
+  position: relative;
+  top: 20rpx;
+  left: 400rpx;
+}

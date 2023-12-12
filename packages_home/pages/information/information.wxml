@@ -1,0 +1,35 @@
+<!--pages/information/information.wxml-->
+<canvas type='2d' style="background-color: #7CC083;width: 100%;"></canvas>
+<view class='xinxi'>
+<image src="{{seller}}"></image>
+<text>昵称{{sname}}</text>
+<text>信誉值{{sceit}}</text>
+</view>
+<!-- 分割 -->
+<view  class="split">
+<canvas type='2d'style="background-color: #7CC083;width:50%;height:5px;"></canvas>
+<text style="width: 420px;margin-left:30px;margin-right: -30px;">先到先得</text>
+<canvas type='2d'style="background-color: #7CC083;width:75%;height:5px;margin-left:10px"></canvas>
+</view>
+
+<!-- 物品 -->
+<view scroll-y="true" style="height:{{4*height}}rpx;" class="scroll"> 
+<block wx:for="{{thing}}" >
+  <template is="thing" data="{{item: item,index: index}}" ></template>
+</block>
+</view>
+
+<template name="thing" >
+<view class="margin" data-index="{{index}}" bindtap="jmp">
+<view >
+<canvas type="2d" class="picture">
+  <image src="{{item.image}}"></image>
+<image src="/image/交易完成 (1).png" class="over" wx:if="{{over?true:false}}"></image>
+</canvas>
+<view class="article">
+<view>{{item.name}}</view>
+<view>{{item.type}}:{{item.way}}</view>
+</view>
+</view>
+</view>
+</template>

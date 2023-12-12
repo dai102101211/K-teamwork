@@ -1,0 +1,128 @@
+.container{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.topbg{
+  width: 100%;
+  height: 200rpx;
+  background-color: #7cc083;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+.topbg text{
+  font-size: 50rpx;
+  position: relative;
+  top: 80rpx;
+  color: #E3E2CD;
+}
+
+.inputs{
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 120rpx;
+position: fixed;
+bottom: 0;
+display: flex;
+}
+
+.inputs input{
+  border: 1px solid black;
+  border-radius: 30rpx;
+  height: 60rpx;
+  width: 550rpx;
+  position: relative;
+  left: 40rpx;
+  top: 20rpx;
+  background-color: #ffffff;
+}
+
+.inputs image{
+  height: 60rpx;
+  width: 60rpx;
+  position: relative;
+  left: 80rpx;
+  top: 20rpx;
+}
+
+.list{
+  position:fixed;
+  top:220rpx;
+  width:100%;
+  height: 1100rpx;
+  box-sizing: border-box;
+  padding-left:30rpx;
+  padding-right:30rpx;
+}
+/* .communicate{
+  margin-bottom: 25rpx;
+} */
+/* 我的一方的布局 */
+.communicate-my{
+  display: flex;
+  position: relative;
+  top:50rpx;
+  right: 10rpx;
+  justify-content: flex-end; /* 将元素放在右侧 */
+}
+.communicate-my image{
+  position:relative; /* 子元素设置 absolute */
+  right: 0; /* 固定右侧 */
+  border-radius: 50%;
+  height: 150rpx;
+  width: 150rpx;
+}
+.communicate-my text{
+  position:absolute;
+  top:-10rpx;
+  right:200rpx;
+  font-size: 45rpx;
+}
+#chat{
+  display: inline-block;
+  word-wrap: break-word;
+  min-width: 50rpx; /* 设置最小宽度 */
+  max-width: 500rpx; /* 设置最大宽度 */
+  margin-top: 100rpx;
+  position: relative;
+  top:-50rpx;
+  border: 1px solid black;
+  border-radius: 20rpx;
+  font-size: 45rpx;
+  text-align: center;
+}
+
+.communicate-other{
+  display: flex;
+  position: relative;
+  top:50rpx;
+  margin-bottom: 25rpx;
+}
+.communicate-other image{
+  position:relative; /* 子元素设置 absolute */
+  border-radius: 50%;
+  height: 150rpx;
+  width: 150rpx;
+}
+.communicate-other text{
+  position: relative;
+  top:-10rpx;
+  font-size: 45rpx;
+}
+#chat-other{
+  display: inline-block;
+  word-wrap: break-word;
+  min-width: 50rpx; /* 设置最小宽度 */
+  max-width: 500rpx; /* 设置最大宽度 */
+  margin-top: 100rpx;
+  position: relative;
+  top:-50rpx;
+  border: 1px solid black;
+  border-radius: 20rpx;
+  font-size: 45rpx;
+  text-align: center;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "information":"/components/information/information"
+  },
+  "navigationBarTitleText": "donation"
+}

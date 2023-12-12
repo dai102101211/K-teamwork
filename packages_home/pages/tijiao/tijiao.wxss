@@ -1,0 +1,35 @@
+/* pages/tijiao/tijiao.wxss */
+.jieshu{
+  position:absolute;
+  top:55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0px 2px 7px  #B1D9B5;
+}
+.container{
+  display:inline-block;
+  height: 143px;
+  width: 276px;
+}
+.container image{
+  position:absolute;
+  top:30%;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.container text{
+  position:absolute;
+  top:30%;
+  left:50%;
+  font-size: 20px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+.bottom{
+  transform: translate(10%,0%);
+  width:314px;
+  height: 209px;
+}

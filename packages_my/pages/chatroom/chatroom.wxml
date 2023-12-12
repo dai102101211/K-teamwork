@@ -1,0 +1,31 @@
+<view class="container">
+
+<view class="topbg">
+<text>聊天室</text>
+</view>
+
+<scroll-view class="list" scroll-y >
+<view wx:for="{{contact}}" wx:key="*this" class="communicate">
+  <view class="communicate-other" wx:if="{{item.from == openid}}" >
+    <image src="{{userOther.head}}"></image>
+    <text>{{userOther.nickname}}</text>
+    <view id='chat-other'>{{item.content}}</view>
+  </view>
+  <view class="communicate-my" wx:else="" >
+    <view id='chat'>{{item.content}}</view>
+    <text>{{user.nickname}}</text>
+    <image src="{{user.head}}"></image>
+  </view>
+</view>
+</scroll-view>
+
+<view class="inputs">
+<input type="text"  bindinput="chat" value="{{chat}}"/>
+<view wx:if="{{chat==''}}">
+<image src="https://img2.baidu.com/it/u=662524819,524249563&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" mode="" bindtap="img"/>
+</view>
+<view wx:else>
+  <button style="background-color: #7cc083;border-radius: 30rpx; color: white;height: 70rpx;line-height: 70rpx;position: relative;top:15rpx;left: 55rpx;" bindtap="post">发送</button>
+</view>
+</view>
+</view>

@@ -1,0 +1,90 @@
+/* pages/display/display.wxss */
+.hua {
+  padding-top: 0px;
+  margin-top: -40px;
+}
+
+.hua swiper {
+  height: 220px;
+}
+
+.hua swiper swiper-item image {
+  height: 200px;
+  width: 100%;
+  border-radius: 30rpx;
+}
+
+.queren {
+  top: 600px;
+  left: 65%;
+}
+
+.bottom {
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  border-radius: 30rpx;
+  height: 375px;
+  border: 1px double black;
+}
+
+.bottom .shuru {
+  width: 60%;
+  border: 1px double yellowgreen;
+  border-radius: 10rpx;
+}
+
+.bottom .queren {
+  top: 10%;
+  left: 65%;
+}
+
+.bottom .quxiao {
+  top: 10%;
+  right: 5%;
+}
+
+.title{
+  display:flex;
+  margin: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+  color: #CE5D5C;
+}
+.title button{
+  margin-right:10px;
+  color: #B2AAAA;
+  background-color: transparent;
+  font-size: 18px;
+}
+.contact{
+  position:absolute;
+  font-size: 20px;
+  left:5%;
+}
+
+.way image{
+  position:absolute;
+  bottom:4%;
+  left:5%;
+  width:38px;
+  height: 38px;
+}
+.way text{
+  position:absolute;
+  bottom:4%;
+  left:15%;
+  font-size: 30px;
+  color:#CE5D5C;
+}
+/*聊天*/
+.chat{
+position: absolute;
+top:45%;
+left:55%;
+transform: translate(-50%,0%);
+width:30px;
+height: 30px;
+}

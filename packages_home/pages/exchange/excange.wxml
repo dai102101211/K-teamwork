@@ -1,0 +1,38 @@
+<!--pages/exchange/excange.wxml-->
+<!--pages/rent/rent.wxml-->
+<canvas type="2d" class="rent-title"></canvas>
+<text class="rent-titleText"> 物品交换</text>
+<!--添加图片信息-->
+<!--进行添加图片-->
+<view wx:if="{{model ? false : true}}">
+<image class="add" src="/image/plus.png" bindtap="change"></image>
+</view>
+<!--进行放大图片-->
+<view wx:if="{{model? true : false}}">
+<swiper indicator-dots="true" indicator-active-color="#ffffff"  duration="500" class="swPicture"  bindtap="bindUpload"> 
+  <block wx:for="{{imgs}}">
+    <swiper-item>
+      <image src="{{item}}" class="picture"  bindtap="bindUpload"></image>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+
+
+<!--商品信息填写-->
+<view class="xinxi">
+<text>商品名称：</text>
+<text>交换物品:</text>
+<text>商品信息:</text>
+<text>联系方式:</text>
+</view>
+
+<view class="Inputxin">
+  <textarea  id="name" rows="4" cols="10" placeholder="请输入名称" bindinput="input"></textarea>
+  <textarea  id="money" placeholder="请输入商品物品" bindinput="input"></textarea>
+  <textarea  id="message" rows="4" cols="10" placeholder="请输入商品信息" bindinput="input"></textarea>
+  <textarea id="relax" rows="4" cols="10" placeholder="请填入联系方式，便于交易完成" bindinput="input"></textarea>
+</view>
+
+<!--确定，将数据后端-->
+<button class="ok" bindtap="ok">确定</button>

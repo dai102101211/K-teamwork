@@ -1,0 +1,11 @@
+<!--pages/tijiao/tijiao.wxml-->
+<canvas type="2d" style="background-color: #7CC083;width: 100%;height:150px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"></canvas>
+<view></view>
+<view class="jieshu">
+<canvas type="2d" class="container">
+<image src="/image/打钩.png"></image>
+<text>  提交成功 等待交易完成</text>
+</canvas>
+</view>
+
+<image src="/image/跑腿闪送插画 (2).png" class="bottom"></image>

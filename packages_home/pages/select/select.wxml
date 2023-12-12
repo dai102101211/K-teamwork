@@ -1,0 +1,29 @@
+<!--pages/select/select.wxml-->
+<canvas type="2d" class="rent-title"></canvas>
+<text class="rent-titleText"> 好物待选</text>
+
+<!--搜索-->
+<view>
+  <image src="/image/搜索.png" class="Imgsousuo"  ></image>
+<input type="text" placeholder="请输入搜索的物品名称" class="sousuo" bindinput="input"> </input>
+<button class="search" bindtap="search">确定</button>
+</view>
+
+<scroll-view scroll-y="true" style="height:{{4*height}}rpx"> 
+<block wx:for="{{search}}" >
+  <template is="search" data="{{item: item}}" ></template>
+</block>
+</scroll-view>
+
+<!--物品显示-->
+
+<template name="search"  >
+<view class="kuang" data-id="{{item.id}}" bindtap="select">
+<canvas type="2d"></canvas>
+<canvas type="2d" class="picture" ><image src="{{item.img}}" ></image></canvas>
+<view class="article">
+<view >{{item.name}}</view>
+<view>{{item.type}}:{{item.way}}</view>
+</view>
+</view>
+</template>

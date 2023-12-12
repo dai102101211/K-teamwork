@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="topbg">
+ </view>
+
+  <view class="userinfo-avatar" >
+     <image src='{{user.head}}'></image>
+  </view>
+ <view class="user_box1">
+  昵称：{{user.nickname}}
+   <view class="onm">
+   <view class="credibility">订单数：{{user.order}}
+   </view>
+   <view class="credibility">完成数：{{user.complete}}
+   </view>
+   </view>
+  </view>
+
+ <view class="listbg">
+ <button size="mini" class="ed" bind:tap="gosell">交易中</button>
+ <button size="mini" class="will">未交易</button>
+   <view class="list">
+    <view class="card" wx:for="{{sale}}"  wx:key="index">
+      <button>取消出售</button>
+      <image src="{{item.img}}" mode=""/>
+      <text>物品名称：{{item.name}}</text>
+      <text>售价：{{item.special.money}}r</text>
+    </view>
+   </view>
+ </view>
+
+ <view class="sellimg">
+  <image src="https://img-community.csdnimg.cn/images/40e1d1e36f4b4804a88a8d213c166da2.png" alt=""/>
+ </view>
+
+
+</view>

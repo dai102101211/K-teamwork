@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="topbg">
+  </view>
+
+  <view class="role">
+    <!-- 基本信息 -->
+    <view class="userinfo-avatar">
+      <image src='{{user.head}}'></image>
+    </view>
+    <view class="user_box1">
+      昵称：{{user.nickname}}
+      <!-- onload()给出 -->
+      <view class="onm">
+        <view class="credibility">订单数：{{user.order}}
+        </view>
+        <view class="credibility">完成数：{{user.complete}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="listbg">
+    <button size="mini" class="ed">交易中</button>
+    <button size="mini" class="will" bind:tap="goleasewill">未交易</button>
+    <view class="list">
+      <view class="card" wx:for="{{order}}" wx:key="index">
+        <image src="{{item.good[0].img}}" mode="" data-index="{{index}}" bind:tap="showHidden" />
+        <text>出租人：{{item.u_from[0].nickname}}</text>
+        <text>租借人：{{item.u_to[0].nickname}}</text>
+        <text>租借时间：{{item.special.time}} day</text>
+        <view class="chat">
+          <image src="https://img-community.csdnimg.cn/images/383db237fa4c4b13a4749eed957db58f.png" alt="" bind:tap="gochatroom" />
+        </view>
+        <view class="status" wx:if="{{item.u_from[0]._openid == user._openid}}">
+          <text size="mini" class="item {{ item.status === '1' ? 'active' : ''}}" data-id="1">物品未送出</text>
+          <view class="f">丨</view>
+          <button class="t" size="mini" data-id="3" data-index="{{index}}" bindtap='progress' class="item {{item.status === '3' ? 'activeButton' : 't'}}" disabled="{{item.status!=='2'}}">物品已送出</button>
+          <view class="f">丨</view>
+          <text class="t" size="mini" class="item {{ item.status === '3' ? 'active' : ''}}" data-id="3">租借人已收到</text>
+          <view class="f">丨</view>
+          <text class="t" size="mini" class="item {{ item.status === '4' ? 'active' : ''}}" data-id="4">租赁中</text>
+          <view class="f">丨</view>
+          <button size="mini" data-id="6" data-index="{{index}}" bindtap='progress' class="item {{item.status === '6' ? 'activeButton' : 't'}}" disabled="{{item.status!=='5'}}">已支付</button>
+          <view class="f">丨</view>
+          <button size="mini" data-id="7" data-index="{{index}}" bindtap='progress' class="item {{item.status === '7' ? 'activeButton' : 't'}}" disabled="{{item.status!=='6'}}">已归还</button>
+        </view>
+        <view class="status" wx:else>
+          <text size="mini" class="item {{ item.status === '1' ? 'active' : ''}}" data-id="1">物品未送出</text>
+          <view class="f">丨</view>
+          <text size="mini" class="item {{ item.status === '2' ? 'active' : ''}}" data-id="2">物品已送出</text>
+          <view class="f">丨</view>
+          <button size="mini" data-id="4" data-index="{{index}}" bindtap='progress' class="item {{item.status === '4' ? 'activeButton' : 't'}}" disabled="{{item.status!=='3'}}">租借人已收到</button>
+          <view class="f">丨</view>
+          <text size="mini" class="item {{ item.status === '4' ? 'active' : ''}}" data-id="4">租赁中</text>
+          <view class="f">丨</view>
+          <text size="mini" class="item {{ item.status === '5' ? 'active' : ''}}" data-id="5">已支付</text>
+          <view class="f">丨</view>
+          <text size="mini" class="item {{ item.status === '6' ? 'active' : ''}}" data-id="6">已归还</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="leaseimg">
+    <image src="https://img-community.csdnimg.cn/images/45fd8a8a5146466b95705448e7367842.png" alt="" />
+    <information isHidden="{{hide}}" message="{{User[In]}}">
+    </information>
+  </view>
+
+</view>

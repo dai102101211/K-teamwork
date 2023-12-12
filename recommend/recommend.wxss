@@ -1,0 +1,226 @@
+/* pages/recommend/recommend.wxss */
+
+page {
+  height: 100%;
+}
+
+.coat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color:#F2F1F1;
+}
+
+/*导航区*/
+
+.back {
+    position:absolute;
+    width:750rpx;
+    height:270rpx;
+    background-color:#7CC083;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    box-shadow: 0px 18rpx 22rpx 0px rgba(0, 0, 0, 0.1608);
+}
+
+.navig {
+    position:relative;
+    top:178rpx;
+    white-space:nowrap;
+}
+
+.nav_item {
+    width:100rpx;
+    margin-left:100rpx;
+    padding-top:30rpx;
+    display:inline-block;
+    color:white;
+    font-size:40rpx;
+    text-align:center;
+    
+}
+
+.active {
+    border-bottom:10rpx solid #A2DAF5;
+}
+
+
+/*浏览区*/
+
+.scan {
+    position:fixed;
+    top:270rpx;
+    width:100%;
+    height:1050rpx;
+}
+
+.post {
+    position:relative;
+    margin-top:80rpx;
+    margin-left:40rpx;
+    width:670rpx;
+    height:408rpx;
+    background:white;
+    border: 1px solid #707070;
+    border-radius: 40rpx;
+    padding:40rpx;
+    box-sizing: border-box;
+    display:block;
+}
+
+/*版块-用户*/
+
+.user {
+    position:absolute;
+    width:590rpx;
+    height:110rpx;
+}
+
+/*用户头像*/
+.head {
+    position:absolute;
+    width:100rpx;
+    height:100rpx;
+    border: 1px solid #707070;
+    border-radius: 50%;
+}
+
+.name {
+    position:absolute;
+    top:8rpx;
+    left:130rpx;
+    font-size:32rpx;
+    font-weight:bold;
+}
+
+.time {
+    position:absolute;
+    top:64rpx;
+    left:130rpx;
+    font-size:26rpx;
+}
+
+/*版块-内容*/
+
+.content {
+    position:absolute;
+    top:160rpx;
+    width:590rpx;
+    height:150rpx;
+}
+
+.title {
+    position:absolute;
+    font-size:34rpx;
+    font-weight:bold;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    align-content: center;
+    
+}
+
+.intro {
+    position:absolute;
+    top:50rpx;
+    font-size:30rpx;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    align-content: center;
+    line-height: 1.6;
+}
+
+/*版块-操作*/
+
+.opera {
+    position:absolute;
+    top:326rpx;
+    width:590rpx;
+    height:60rpx;
+}
+
+.zan {
+  position:absolute;
+  right: 50rpx;
+  /*width: 160rpx;*/
+  box-sizing: border-box;
+  background-color:rgb(63, 51, 167,0);
+
+}
+
+.zan_img {
+    position: relative;
+    bottom:2rpx;
+    right: 26rpx;
+    width:46rpx;
+    height:46rpx;
+}
+
+.zan_num {
+    position: relative;
+    right:20rpx;
+    bottom:8rpx;
+    font-size:32rpx;
+}
+	
+.comment {
+    position:absolute;
+    left:540rpx;
+    width:46rpx;
+    height:46rpx;
+}
+
+/*底部导航区*/
+
+.bottom_nav {
+    position:fixed;
+    width:100%;
+    height:126rpx;
+    bottom:0;
+    background-color:#F9F9F9;
+    box-shadow: 0px 18rpx 22rpx 0px rgba(0, 0, 0, 0.5);
+}
+
+.bt_item_1 {
+    position:absolute;
+    margin-left:130rpx;
+    margin-top:10rpx;
+    font-size:32rpx;
+    display:inline-block;
+}
+
+.bt_item_2 {
+    position:absolute;
+    margin-left:556rpx;
+    margin-top:10rpx;
+    font-size:32rpx;
+    display:inline-block;
+}
+
+.icon {
+    width:64rpx;
+    height:64rpx;
+    display:block;
+}
+
+.bt_item_up {
+    position:absolute;
+    margin-left:305rpx;
+    margin-top:-50rpx;
+    display:inline-block;
+}
+
+.icon_up {
+    width:140rpx;
+    height:140rpx;
+    display:block;
+}

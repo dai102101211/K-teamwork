@@ -1,0 +1,42 @@
+<!--pages/home  page/home page.wxml-->
+<view>
+<image class="title" src="/image/图像 1.png"></image>
+<canvas type="2d" class="tian"></canvas>
+<canvas  type="2d" class="select-wai"></canvas>
+</view>
+<!--出售、交换、租赁-->
+<view class="select"  >
+<image src="/image/已出售.png" id="sell" bindtap="jump"></image>
+<image src="/image/05-交换.png" id="exchange" bindtap="jump"></image>
+<image src="/image/租赁台账.png" id="rent" bindtap="jump"></image>
+</view>
+<view class="select-text" >
+<text id="sell" bindtap="jump">出售</text>
+<text id="exchange" bindtap="jump">交换</text>
+<text id="rent" bindtap="jump">租赁</text>
+</view>
+
+<!--好物待选、上门取货-->
+<view class="haowu" >
+<button id="select" bindtap='jump'>好物待选</button>
+<image src="/image/跑腿闪送插画 (1).png"></image>
+</view>
+
+<view class="juanzeng" >
+<button id="donation" bindtap="jump">赠品狂欢</button>
+<image src="/image/刚刚好.png"></image>
+</view>
+
+<!--底部-->
+<view class="bottom">
+<canvas type="2d" ></canvas>
+<canvas type="2d"></canvas>
+</view>
+<view class="center" >
+<image  src="/image/首页 (3).png" ></image>
+<text >首页</text>
+<image id='community' src="/image/社区.png" bindtap="jump"></image>
+<text id='community' bindtap="jump">社区</text>
+<image id='my' src="/image/我的.png" bindtap="jump"> </image>
+<text id='my' bindtap="jump">我的</text>
+</view>

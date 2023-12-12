@@ -1,0 +1,85 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+
+<view class="topbg">
+</view>
+<!-- 基本信息 -->
+  <view class="userinfo-avatar" >
+     <image src='{{user.head}}'></image>
+  </view>
+ <view class="user_box1">
+  昵称：{{user.nickname}}
+  <!-- onload()给出 -->
+  <view class="onm">
+  <view class="credibility">订单数：{{user.order}}
+  </view>
+  <view class="credibility">完成数：{{user.complete}}
+  </view>
+ </view>
+ </view>
+
+
+<!-- 出售、赠送、交换、租赁-->
+ <view class="items">
+  <view class="item">
+   <image src="https://img-community.csdnimg.cn/images/40e1d1e36f4b4804a88a8d213c166da2.png" alt="" bind:tap="sell"/>
+   <text>出售</text>
+  </view>
+  <view class="item">
+   <image src="https://img-community.csdnimg.cn/images/c0553a0d41724cde9f2b5fc26df55783.png" alt="" bind:tap="donation"/>
+   <text>赠送</text>
+  </view>
+  <view class="item">
+   <image src="https://img-community.csdnimg.cn/images/a21580e515924413b4f677c0594efbd5.png" alt="" bind:tap="exchange"/>
+   <text>交换</text>
+  </view>
+  <view class="item">
+   <image src="https://img-community.csdnimg.cn/images/45fd8a8a5146466b95705448e7367842.png" alt="" bind:tap="lease"/>
+   <text>租赁</text>
+  </view>
+ </view>
+
+ <view class="tx">
+  <text>排行榜</text>
+ </view>
+<!-- onload（）给出 排行榜-->
+ <scroll-view class="list" scroll-y>
+ <view class="card"  wx:for="{{rankinglist}}" wx:key="index">
+ <view class="rankimg">
+    <view wx:if="{{index==0}}" class="p">
+    <image src="{{img_0}}" mode=""/>
+    </view>
+    <view wx:if="{{index==1}}" class="p">
+    <image src="{{img_1}}" mode=""/>
+    </view>
+    <view wx:if="{{index==2}}" class="p">
+    <image src="{{img_2}}" mode=""/>
+    </view>
+    <view  wx:if="{{index>2}}" class="nm">
+    {{index+1}}
+    </view>
+ </view>
+ <view class="rankinglistrole">
+ <image src="{{rankinglist[index].head}}" mode=""/>
+ </view>
+ <view class="massage"> 
+  <view>昵称：{{rankinglist[index].nickname}}</view>
+  <view>完成率：{{rankinglist[index].rate}}</view>
+ </view>
+  </view>
+ </scroll-view>
+</view>
+
+<!--底部-->
+<view class="bottom">
+<canvas type="2d" ></canvas>
+<canvas type="2d"></canvas>
+</view>
+<view class="center" >
+<image id='home' src="/image/首页.png" bindtap="jump"></image>
+<text id='home' bindtap="jump">首页</text>
+<image id='community' src="/image/社区.png" bindtap="jump"></image>
+<text id='community' bindtap="jump">社区</text>
+<image id='my' src="/image/my.png" > </image>
+<text id='my' >我的</text>
+</view>

@@ -10,244 +10,9 @@ Page({
     currentIndexNav: 0,
     //底部导航索引
     bt_index: 0,
-    //浏览区帖子信息
-    // post_list: [
-    //   {
-    //     my_user: {
-    //       user: {
-    //         head: "/images/tuk.jpg",
-    //         myname: "tuk",
-    //         mycredit: 1000,
-    //       },
-    //       post: [
-    //         {
-    //           time: "2023/11/06 17:25",
-    //           title: "大四二手出售：这次体验超棒",
-    //           content: "这次从学姐手里买的便利贴，简直开阔了我的眼界",
-    //           img: [
-    //             "/images/gou.jpg",
-    //             "/images/zhu.jpg",
-    //             "/images/gou.jpg",
-    //           ],
-    //           tag: ["12345", "tuk", "鹅鹅鹅", "1111111111", "abcdefg"],
-    //           zan: {
-    //             num: 10,
-    //             flag: false,
-    //             img: "/icons/zan0.png",
-    //           },
-    //           cmt: [
-    //             {
-    //               head: "/images/橘子.jpg",
-    //               name: "橘子",
-    //               content: "点赞",
-    //               time: "2023/11/14 13:24",
-    //             }
-    //           ],
-    //         },
-    //         {
-    //           time: "2023/11/06 19:55",
-    //           title: "大四二手出售：这次体验超棒",
-    //           content: "这次从学姐手里买的空气，简直开阔了我的眼界",
-    //           img: [
-    //             "/images/zhu.jpg",
-    //           ],
-    //           tag: ["空气"],
-    //           zan: {
-    //             num: 0,
-    //             flag: false,
-    //             img: "/icons/zan0.png",
-    //           },
-    //           cmt: [
-    //             {
-    //               head: "/images/橘子.jpg",
-    //               name: "橘子",
-    //               content: "不错不错",
-    //               time: "2023/11/20 13:24",
-    //             }
-    //           ],
-    //         },
-    //       ]
-
-    //     },
-    //     post: {
-    //       time: "2023/11/06 17:25",
-    //       title: "大四二手出售：这次体验超棒",
-    //       content: "这次从学姐手里买的便利贴，简直开阔了我的眼界",
-    //       img: [
-    //         "/images/gou.jpg",
-    //         "/images/zhu.jpg",
-    //         "/images/gou.jpg",
-    //       ],
-    //       tag: ["12345", "tuk", "鹅鹅鹅", "1111111111", "abcdefg"],
-    //       zan: {
-    //         num: 2000,
-    //         flag: false,
-    //         img: "/icons/zan0.png",
-    //       },
-    //       cmt: [
-    //         {
-    //           head: "/images/橘子.jpg",
-    //           name: "橘子",
-    //           content: "点赞",
-    //           time: "2023/11/14 13:24",
-    //         }
-    //       ],
-    //     }
-    //   },
-
-    //   {
-    //     my_user: {
-    //       user: {
-    //         head: "/images/糖果.jpg",
-    //         myname: "糖果",
-    //         mycredit: 233,
-    //       },
-    //       post: [
-    //         {
-    //           time: "2023/11/06 17:27",
-    //           title: "大四二手出售：这次体验超棒",
-    //           content: "这次从学姐手里买的糖果，简直开阔了我的眼界",
-    //           img: [
-    //             "/images/zhu.jpg",
-    //           ],
-    //           tag: ["22222222", "tuk", "鹅鹅鹅", "1111111111"],
-    //           zan: {
-    //             num: 888,
-    //             flag: false,
-    //             img: "/icons/zan0.png",
-    //           },
-    //           cmt: [
-    //             {
-    //               head: "/images/tuk.jpg",
-    //               name: "tuk",
-    //               content: "不给糖就捣蛋",
-    //               time: "2023/11/14 13:44",
-    //             },
-    //             {
-    //               head: "/images/橘子.jpg",
-    //               name: "橘",
-    //               content: "不给橘子就捣蛋",
-    //               time: "2023/11/14 13:45",
-    //             }
-
-    //           ],
-    //         }
-    //       ]
-    //     },
-    //     post: {
-    //       time: "2023/11/06 17:27",
-    //       title: "大四二手出售：这次体验超棒",
-    //       content: "这次从学姐手里买的糖果，简直开阔了我的眼界",
-    //       img: [
-    //         "/images/zhu.jpg",
-    //       ],
-    //       tag: ["22222222", "tuk", "鹅鹅鹅", "1111111111"],
-    //       zan: {
-    //         num: 888,
-    //         flag: false,
-    //         img: "/icons/zan0.png",
-    //       },
-    //       cmt: [
-    //         {
-    //           head: "/images/tuk.jpg",
-    //           name: "tuk",
-    //           content: "不给糖就捣蛋",
-    //           time: "2023/11/14 13:44",
-    //         },
-    //         {
-    //           head: "/images/橘子.jpg",
-    //           name: "橘",
-    //           content: "不给橘子就捣蛋",
-    //           time: "2023/11/14 13:45",
-    //         }
-
-    //       ],
-    //     }
-    //   },
-
-    //   {
-    //     my_user: {
-    //       user: {
-    //         head: "/images/帽子.jpg",
-    //         myname: "帽子",
-    //         mycredit: 417,
-    //       },
-    //       post: [
-    //         {
-    //           time: "2023/11/06 17:28",
-    //           title: "大四二手出售：这次体验超棒",
-    //           content: "这次从学姐手里买的帽子，简直开阔了我的眼界",
-    //           img: [
-    //             "/images/dog.jpg",
-    //           ],
-    //           tag: [],
-    //           zan: {
-    //             num: 0,
-    //             flag: false,
-    //             img: "/icons/zan0.png",
-    //           },
-    //           cmt: [],
-    //         }
-    //       ]
-    //     },
-    //     post: {
-    //       time: "2023/11/07 17:28",
-    //       title: "大四二手出售：这次体验超棒",
-    //       content: "这次从学姐手里买的帽子，简直开阔了我的眼界",
-    //       img: [
-    //         "/images/dog.jpg",
-    //       ],
-    //       tag: [],
-    //       zan: {
-    //         num: 1,
-    //         flag: false,
-    //         img: "/icons/zan0.png",
-    //       },
-    //       cmt: [],
-    //     }
-    //   },
-
-    //   {
-    //     my_user: {
-    //       user: {
-    //         head: "/images/橘子.jpg",
-    //         myname: "TUK",
-    //         mycredit: 417,
-    //       },
-    //       post: [
-    //         {
-    //           time: "2023/11/08 17:29",
-    //           title: "大四二手出售：这次体验超棒",
-    //           content: "这次从学姐手里买的橘子，简直开阔了我的眼界",
-    //           tag: ["4", "tuk", "鹅鹅鹅", "1111111111"],
-    //           zan: {
-    //             num: 0,
-    //             flag: false,
-    //             img: "/icons/zan0.png",
-    //           },
-    //           cmt: [],
-    //         }
-    //       ]
-    //     },
-
-    //     post: {
-    //       time: "2023/11/08 17:29",
-    //       title: "大四二手出售：这次体验超棒",
-    //       content: "这次从学姐手里买的橘子，简直开阔了我的眼界",
-    //       tag: ["4", "tuk", "鹅鹅鹅", "1111111111"],
-    //       zan: {
-    //         num: 0,
-    //         flag: false,
-    //         img: "/icons/zan0.png",
-    //       },
-    //       cmt: [],
-    //     }
-    //   },
-
-    // ],
-    //
     post_list:[],
     my_user: {},
+    isShowMessMy:false,
   },
 
   //分区1-首部导航
@@ -278,7 +43,7 @@ Page({
     console.log("点击发帖人个人主页")
     console.log(U)
     wx.navigateTo({
-      url: '/pages/packages_c/pages/home/home?openid' + U._openid,
+      url: '/pages/packages_c/pages/home/home?openid=' + U,
     })
   },
 
@@ -302,6 +67,7 @@ Page({
     var id = e.currentTarget.dataset.index
     console.log(this.data.post_list[id])
     var index = this.data.post_list[id].zan.flag.indexOf(app.globalData.openid);
+    var last=false;
     this.data.post_list[id].zan.img = index != -1?"/icons/zan0.png":"/icons/zan2.png";
     if(index == -1)  //加赞
     {
@@ -312,6 +78,7 @@ Page({
     {
       this.data.post_list[id].zan.flag.splice(index, 1);
       this.data.post_list[id].zan.num--;
+      last=true;
     }
     this.setData({
       post_list:this.data.post_list
@@ -319,9 +86,11 @@ Page({
     //同步后端数据改变：
     wx.cloud.database().collection('community').doc(this.data.post_list[id]._id).update({
       data:{
-        zan:this.data.post_list[id].zan
+        zan:this.data.post_list[id].zan,
+        last:last
       }
     })
+    console.log(11111)
   },
 
   //评论
@@ -380,11 +149,46 @@ Page({
       }
       that.setData({
         post_list:tmp,
-        my_user:app.globalData.me
+        my_user:app.globalData.me,
+      })
+      wx.cloud.database().collection('order').where({
+        $or: [
+          { from: app.globalData.openid },
+          { to: app.globalData.openid }
+        ]
+      })
+      .watch({
+        onChange:function(snapshot){
+          console.log('order:',snapshot)
+          if(snapshot.docs.length>0)
+          {
+            for(var i=0;i<snapshot.docs.length;i++)
+            {
+              if(snapshot.docs[i].from==app.globalData.openid)
+              {
+                if(snapshot.docs[i].from_last==false)
+                {
+                  app.globalData.MessMy=true;
+                }
+              } 
+              else if(snapshot.docs[i].to==app.globalData.openid)
+                {
+                  if(snapshot.docs[i].to_last==false)
+                  {
+                    app.globalData.MessMy=true;
+                  }
+                }
+            }
+          }
+          that.setData({
+            isShowMessMy:app.globalData.MessMy
+          })
+        },
+        onError:function(err) {
+          console.log('order',err);
+        }
       })
     })
-    
-
   },
   onShow:function(options) {
     

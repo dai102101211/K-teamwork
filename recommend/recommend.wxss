@@ -224,3 +224,12 @@ page {
     height:140rpx;
     display:block;
 }
+
+.MessMy {
+  position: fixed;
+  bottom: 76rpx;
+  left: 600rpx;
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+}

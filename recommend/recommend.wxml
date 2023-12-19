@@ -18,8 +18,8 @@
         <view class="post" wx:for="{{post_list}}" wx:key="index" wx:for-item="Pitem">
             <!-- 版块-用户 :头像，昵称，发帖时间;点击进入个人主页 -->
             <view class="user">
-                <image bindtap="click_home" data-my_user="{{Pitem.my_user}}" class="head" src="{{Pitem.head}}" />
-                <view bindtap="click_home" data-my_user="{{Pitem.my_user}}" class="name">{{Pitem.nickname}}</view>
+                <image bindtap="click_home" data-my_user="{{Pitem._openid}}" class="head" src="{{Pitem.head}}" />
+                <view bindtap="click_home" data-my_user="{{Pitem._openid}}" class="name">{{Pitem.nickname}}</view>
                 <view class="time">{{Pitem.time}}</view>
             </view>
             <!-- 版块-内容 :标题，简介;点击进入帖子详情 -->
@@ -62,3 +62,5 @@
         </view>
     </view>
 </view>
+
+<image class="MessMy" wx:if="{{isShowMessMy}}" mode="scaleToFill" src="/images/red.png"></image>

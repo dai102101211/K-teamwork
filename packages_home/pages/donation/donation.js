@@ -61,6 +61,14 @@ uploadDetailImage(){
         console.log("fileID=" + res.fileID);
         that.data.imageUrls.push(res.fileID);
         console.log(that.data.imageUrls)
+        wx.showToast({
+          title: '图片上传成功',
+          icon: 'none',
+          duration: 2000, // 保留的时间，单位为毫秒
+          success: function () {
+            // 弹窗显示成功后的回调函数
+          }
+        })
       }
     })
   }
@@ -78,7 +86,7 @@ bindUpload: function (e) {
   wx.cloud.database().collection('goods').add({
     data:{
       name: this.data.name,
-      address: this.data.message,
+      detail: this.data.message,
       contact: this.data.contact,
       img:this.data.imageUrls,
       type:4,

@@ -7,19 +7,9 @@ Page({
   data: {
     seller: '/image/头像.jpg',
     sname: 'ddr',
-    sceit: 1000,
-    thing:[],
-    // thing: [
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' },
-    //   { 'name': 'aa', 'type': '待出售', 'way': '3r', 'image': ['/image/思维导图.jpg'], 'detail': '' }
-    // ],
+    sceit: '100%',
+    num:1,
+    thing: [],
     height: 0,
     over: true,
   },
@@ -29,27 +19,29 @@ Page({
    */
   onLoad(options) {
     // 加载用户数据
+    console.log(options.openid)
     wx.cloud.database().collection('user').where({
       _openid: options.openid
-    }).get()
+    }) .get()
       .then(res => {
         console.log(res);
         this.setData({
           seller: res.data[0].head,
           sname: res.data[0].nickname,
+          sceit: (res.data[0].rate)*100,
+          num: res.data[0].complete
         });
         wx.cloud.database().collection('goods').where({
-          _openid: options._openid,
-          deal:false
+          _openid: options.openid,
+          deal: false
         }).get()
           .then(result => {
             console.log(result);
             var tmp = [];
             var way = '';
             var type = '';
-            
+            var time='';
             for (var i = 0; i < result.data.length; i++) {
-
               if (result.data[i].type == '1') {
                 type = "待出售";
                 way = result.data[i].special.money
@@ -60,18 +52,37 @@ Page({
               }
               else if (result.data[i].type == '3') {
                 type = "待出租";
-                way = result.data[i].special.money + 'r /' + result.data[i].special.rent_time
+                way = result.data[i].special.money 
+                time = result.data[i].special.rent_time
               }
-              var item = {
-                'name':result.data[i].name,
-                'type':type,
-                'way':way,
-                'image':result.data[i].img,
-                'detail':result.data[i].detail
-              };
+              else if (result.data[i].type == '4'){
+                type = "待捐赠";
+              }
+              if(type=="待出租")
+              {
+                var item = {
+                  'name': result.data[i].name,
+                  'type': type,
+                  'way': way,
+                  'time':time,
+                  'image': result.data[i].img[0],
+                  'detail': result.data[i].detail,
+                  '_id': result.data[i]._id,
+                };
+              }
+              else{
+                var item = {
+                  'name': result.data[i].name,
+                  'type': type,
+                  'way': way,
+                  'image': result.data[i].img[0],
+                  'detail': result.data[i].detail,
+                  '_id': result.data[i]._id,
+                };
+              }
               tmp.push(item);
             }
-            this.setData({thing:tmp});
+            this.setData({ thing: tmp });
           })
       })
     let screenHeight = wx.getSystemInfoSync().windowHeight;
@@ -82,6 +93,7 @@ Page({
   jmp(e) {
     const index = e.currentTarget.dataset.index
     console.log(`点击了第 ${index} 项`)
+    console.log()
     wx.navigateTo({
       url: '/pages/packages_home/pages/display/display?information=' + JSON.stringify(this.data.thing[index]) + '&image=' + JSON.stringify(this.data.thing[index].image) + '&in=' + false,
     })

@@ -11,8 +11,8 @@ Page({
   },
 
   goexchange:function(){
-    wx.navigateTo({
-      url: '/pages/packages_my/pages/exchange/exchange'
+    wx.redirectTo({
+      url: '/pages/packages_my/pages/exchange/exchange',
     })
    },
   /**
@@ -26,22 +26,56 @@ Page({
     //   })
     //   console.log(this.data.user)
     this.setData({
-      user :app.globalData.me
+      user:app.globalData.me
     })
     var that = this;
+    console.log(this.data.user)
+    wx.cloud.database().collection('user').where({
+      _openid:app.globalData.openid
+    })
+    .watch({
+      // 数据库变化会执行
+      onChange:function(snapshot){
+        console.log(snapshot);
+        app.globalData.me = snapshot.docs[0];
+        that.setData({
+          user:app.globalData.me
+        })
+        wx.cloud.database().collection('goods').where({
+          _openid:app.globalData.openid,
+          deal:false,
+          type:2
+        }).get()
+        .then(res=>{
+          console.log(res)
+          that.setData({
+            exchange:res.data
+          })
+        })
+      },
+      // 错误
+      onError:function(err) {
+        console.log(err);
+      }
+    })
+    
+  },
+
+  cancel(event) {
+    var item = event.currentTarget.dataset.item;
+    var index = event.currentTarget.dataset.index;
+    var exchange= this.data.exchange
     wx.cloud.database().collection('goods').where({
-      _openid:this.data.user._openid,
-      deal:false,
-      type:2
-    }).get()
+      _id:item._id
+    }).remove()
     .then(res=>{
-      console.log(res)
-      that.setData({
-        exchange:res.data
+      console.log(res);
+      exchange.splice(index,1);
+      this.setData({
+        exchange:exchange
       })
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -53,7 +87,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    
   },
 
   /**
@@ -67,7 +101,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    
   },
 
   /**

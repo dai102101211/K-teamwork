@@ -15,8 +15,9 @@
 }
 
 .queren {
-  top: 600px;
-  left: 65%;
+  position:relative;
+  top:650rpx;
+  left:70%;
 }
 
 .bottom {
@@ -63,21 +64,25 @@
   position:absolute;
   font-size: 20px;
   left:5%;
+  height: 300px;
+  overflow: hidden;
 }
 
-.way image{
+.way{
   position:absolute;
   bottom:4%;
+  width: 600rpx;
+}
+.way image{
   left:5%;
   width:38px;
   height: 38px;
 }
 .way text{
-  position:absolute;
-  bottom:4%;
   left:15%;
   font-size: 30px;
   color:#CE5D5C;
+  overflow: hidden;
 }
 /*聊天*/
 .chat{

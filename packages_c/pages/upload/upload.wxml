@@ -1,0 +1,47 @@
+<!--pages/upload/upload.wxml-->
+
+<view class="coat">
+    <!-- 抬头 -->
+    <view class="back">
+    <text class="title">发布帖子</text>
+    </view>
+    <!-- 用户信息 -->
+    <view class="user">
+        <image class="head" src="{{my_user.head}}" />
+        <view class="name">{{my_user.nickname}}</view>
+        <view class="time">{{time_now}}</view>
+    </view>
+    <!-- 发帖信息 -->
+    <view class="post">
+        <form bindsubmit="toPost" class="up_post">
+            <!-- 标题 -->
+            <view class="post_item">
+                <text class="tip">标题：</text>
+                <input class="item1" type="text" name="post_title" confirm-type="next" />
+            </view>
+            <!-- 内容 -->
+            <view class="post_item">
+                <text class="tip">内容：</text>
+                <input class="item1" maxlength="500" type="text" name="post_content" confirm-type="next" placeholder="少于500字"/>
+            </view>
+            <!-- 图片 -->
+            <view class="post_item_img">
+                <text class="tip">图片：\n</text>
+                <view class="cube_add">
+                    <image bindtap="add_img" style="height: 100rpx;width: 100rpx;margin-top:120rpx;margin-left:80rpx" src="/icons/加号2.png" />
+                </view>
+                <scroll-view  scroll-x="{{true}}" class="for_img" >
+                  
+                  <image wx:for="{{Pimg}}" wx:key="index" class="cube_img" src="{{item}}" />
+                </scroll-view>
+            </view>
+            <!-- tag -->
+            <view class="post_item">
+              <text class="tip_tag">添加话题：</text>
+              <input class="item2" type="text" name="post_tag" confirm-type="done" />
+            </view>
+            <!-- 发布 -->
+            <button form-type="submit" hover-class="hover" class="release" style="width:200rpx;height:90rpx;" >发布</button>
+        </form>
+    </view>
+</view>

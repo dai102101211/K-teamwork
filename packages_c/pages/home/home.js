@@ -1,15 +1,18 @@
 // pages/home/home.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
-    
-    user:{},
-    post:[]
-    
+   //当前导航索引
+   currentIndexNav: 0,
+   //底部导航索引
+   bt_index: 0,
+   post:[],
+   user: {},
+   isShowMessMy:false,
   },
 
   /**
@@ -29,6 +32,7 @@ Page({
       _openid:options.openid
     }).get()
     .then(result=>{
+      console.log(result.data)
       that.setData({post:result.data})
     })
     
@@ -36,42 +40,44 @@ Page({
 
   click_detail(e)
   {
+    var index = e.currentTarget.dataset.index;
     console.log("点击帖子详情")
     wx.navigateTo({
-      url:'/pages/packages_c/pages/detail/detail?user='+JSON.stringify(this.data.my_user)+'&post='+JSON.stringify(e.currentTarget.dataset.detail),
+      url:'/pages/packages_c/pages/detail/detail?id='+ this.data.post[index]._id,
     })
   },
 
   //点赞
   zan(e)
   {
-    console.log("点赞")
+    console.log("点赞");
     console.log(e)
     var id = e.currentTarget.dataset.index
-    var temp_img = `my_user.post[${id}].zan.img`
-    var temp_flag = `my_user.post[${id}].zan.flag`
-    var temp_num = `my_user.post[${id}].zan.num`
-    var temp = this.data.my_user.post[id].zan
-    console.log(temp.flag)
+    console.log(this.data.post[id])
+    var index = this.data.post[id].zan.flag.indexOf(app.globalData.openid);
+    var last=false;
+    this.data.post[id].zan.img = index != -1?"/icons/zan0.png":"/icons/zan2.png";
+    if(index == -1)  //加赞
+    {
+      this.data.post[id].zan.flag.push(app.globalData.openid);
+      this.data.post[id].zan.num++;
+    }
+    else         //减赞
+    {
+      this.data.post[id].zan.flag.splice(index, 1);
+      this.data.post[id].zan.num--;
+      last=true;
+    }
     this.setData({
-      [temp_img]:temp.flag?"/icons/zan0.png":"/icons/zan2.png",
-      [temp_flag]:!temp.flag
+      post:this.data.post
     })
-    if(temp.flag)   //加赞
-    {
-      this.setData({
-        [temp_num]:temp.num+1
-      })
-    }
-    else            //减赞
-    {
-      this.setData({
-        [temp_num]:temp.num-1
-      })
-    }
-    console.log(temp)
     //同步后端数据改变不然单页面的数据改动无法保存下来：
-
+    wx.cloud.database().collection('community').doc(this.data.post[id]._id).update({
+      data:{
+        zan:this.data.post[id].zan,
+        last:last
+      }
+    })
   },
 
   //评论

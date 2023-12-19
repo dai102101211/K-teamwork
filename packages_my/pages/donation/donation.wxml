@@ -21,7 +21,7 @@
   <view class="listbg">
     <view class="list">
       <view class="card" wx:for="{{order}}" wx:key="index">
-        <image src="{{item.good[0].img}}" mode="" data-index="{{index}}" bindtap="showHidden" />
+        <image src="{{item.good[0].img[0]}}" mode="" data-index="{{index}}" data-item="{{item}}"  bindtap="showHidden" />
         <text>赠送人：{{item.u_from[0].nickname}}</text>
         <text>接受方：{{item.u_to[0].nickname}}</text>
         <view class="chat">
@@ -30,7 +30,7 @@
         <view class="status" wx:if="{{item.u_from[0]._openid == user._openid}}">
           <text size="mini" class="{{ item.status === '1' ? 'active' : ''}}" data-id="1">物品未送出</text>
           <view class="f">丨</view>
-          <button size="mini" data-id="3" data-index="{{index}}" bindtap='progress' class="item {{item.status === '3' ? 'activeButton' : 't'}}" disabled="{{item.status!='2'}}">物品已送出</button>
+          <button size="mini" data-id="3" data-index="{{index}}" bindtap='progress' class="item {{item.status === '3' ? 'activeButton' : 't'}}" disabled="{{item.status>'2'}}" data-item="{{item}}">物品已送出</button>
           <view class="f">丨</view>
           <text size="mini" class="{{item.status === '3' ? 'active' : ''}}" data-id="3">物品接收中</text>
           <view class="f">丨</view>
@@ -43,7 +43,7 @@
           <view class="f">丨</view>
           <text size="mini" class="{{item.status  === '3'? 'active' : ''}}" data-id="3">物品接收中</text>
           <view class="f">丨</view>
-          <button size="mini" data-id="5" bindtap='progress' data-index="{{index}}" class="item {{item.status === '5' ? 'activeButton' : 't'}}" disabled="{{item.status!=='4'}}">物品已接收</button>
+          <button size="mini" data-id="5" bindtap='progress' data-index="{{index}}" class="item {{item.status === '5' ? 'activeButton' : 't'}}" disabled="{{item.status<'3'}}" data-item="{{item}}">物品已接收</button>
         </view>
       </view>
     </view>
@@ -51,7 +51,7 @@
 
   <view class="donationimg">
     <image src="https://img-community.csdnimg.cn/images/c0553a0d41724cde9f2b5fc26df55783.png" alt="" />
-    <information isHidden="{{hide}}" message="{{User[In]}}">
+    <information isHidden="{{hide}}" message="{{User}}">
     </information>
   </view>
 

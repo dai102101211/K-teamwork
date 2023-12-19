@@ -20,8 +20,8 @@
  <button size="mini" class="will">未交易</button>
    <view class="list">
     <view class="card" wx:for="{{sale}}"  wx:key="index">
-      <button>取消出售</button>
-      <image src="{{item.img}}" mode=""/>
+      <button bind:tap="cancel" data-item="{{item}}" data-index="{{index}}">取消出售</button>
+      <image src="{{item.img[0]}}" mode=""/>
       <text>物品名称：{{item.name}}</text>
       <text>售价：{{item.special.money}}r</text>
     </view>

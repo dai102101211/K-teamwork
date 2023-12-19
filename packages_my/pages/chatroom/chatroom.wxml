@@ -9,10 +9,12 @@
   <view class="communicate-other" wx:if="{{item.from == openid}}" >
     <image src="{{userOther.head}}"></image>
     <text>{{userOther.nickname}}</text>
-    <view id='chat-other'>{{item.content}}</view>
+    <view  wx:if="{{item.type=='1'}}" id='chat-other'>{{item.content}}</view>
+    <view wx:else><image id='chat-other-img' src="{{imgs[0]}}" bindtap="bindUpload" data-item="{{item}}" mode="aspectFit" ></image></view>
   </view>
   <view class="communicate-my" wx:else="" >
-    <view id='chat'>{{item.content}}</view>
+    <view wx:if="{{item.type=='1'}}" id='chat'>{{item.content}}</view>
+    <view id='chat-img' wx:else><image id='chat-img' src="{{imgs[0]}}" bindtap="bindUpload" data-item="{{item}}" mode="aspectFit"></image></view>
     <text>{{user.nickname}}</text>
     <image src="{{user.head}}"></image>
   </view>

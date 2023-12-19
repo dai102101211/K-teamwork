@@ -103,9 +103,9 @@ Page({
   // },
   zan(e)
   {
-    
     var index = this.data.post.zan.flag.indexOf(app.globalData.openid);
     this.data.post.zan.img = index != -1?"/icons/zan0.png":"/icons/zan2.png";
+    var last=false
     if(index == -1)  //加赞
     {
       this.data.post.zan.flag.push(app.globalData.openid);
@@ -115,14 +115,17 @@ Page({
     {
       this.data.post.zan.flag.splice(index, 1);
       this.data.post.zan.num--;
+      last=true
     }
     this.setData({
       post:this.data.post
     })
+    console.log(this.data.post._id)
     //同步后端数据改变：
     wx.cloud.database().collection('community').doc(this.data.post._id).update({
       data:{
-        zan:this.data.post.zan
+        zan:this.data.post.zan,
+        last:last
       }
     })
   },
@@ -182,9 +185,13 @@ Page({
       inputMessage:"",
     })
     //向后端发送请求同步数据：
-    wx.cloud.database().collection('community').doc(this.data.post._id).update({
+    wx.cloud.database().collection('community').where({
+      _id:this.data.post._id
+    })
+    .update({
       data:{
-        cmt:this.data.post.cmt
+        cmt:this.data.post.cmt,
+        last:false
       }
     }).then(res=>{
       console.log(res);
@@ -193,23 +200,9 @@ Page({
     wx.hideLoading()
   },
   
-  // onLoad(options) {
-    
-  //   var that = this;
-  //   console.log(options)
-  //   that.setData({
-  //       my_user:JSON.parse(options.user),
-  //       my_post:JSON.parse(options.post),
-  //   })
-
-  //   console.log("detail receive options:\n")
-  //   console.log("get my user:\n")
-  //   console.log(that.data.my_user)
-  //   console.log("get my post:\n")
-  //   console.log(that.data.my_post)
-  // },
   onLoad(options) {
     var that = this;
+    console.log(options.id)
     wx.cloud.database().collection('community').where({
       _id:options.id
     })

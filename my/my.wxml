@@ -39,6 +39,11 @@
   </view>
  </view>
 
+<!-- 具体消息显示---小红点 -->
+<view>
+  <image wx:for="{{isShowM}}" class="MessM{{index}}" wx:if="{{item}}" mode="scaleToFill" src="/images/red.png">{{index}}</image>
+</view>
+
  <view class="tx">
   <text>排行榜</text>
  </view>
@@ -81,5 +86,9 @@
 <image id='community' src="/image/社区.png" bindtap="jump"></image>
 <text id='community' bindtap="jump">社区</text>
 <image id='my' src="/image/my.png" > </image>
-<text id='my' >我的</text>
+<text id='my'>我的</text>
 </view>
+
+<image class="MessC" wx:if="{{isShowMessC}}" src="/images/red.png"></image>
+
+<image class="MessMy" wx:if="{{isShowMessMy}}" mode="scaleToFill" src="/images/red.png"></image>

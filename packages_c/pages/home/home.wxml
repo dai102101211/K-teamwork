@@ -1,0 +1,43 @@
+<!--pages/home/home.wxml-->
+
+<view class="coat">
+    <!-- 抬头 -->
+    <view class="back"></view>
+    <!-- 用户信息 -->
+    <view class="user">
+        <image class="head" src="{{user.head}}" />
+        <view class="name">昵称：{{user.nickname}}</view>
+    </view>
+    <!-- 帖子信息 -->
+    <view class="obj">
+        <text class="tip">—————超值有趣—————</text>
+        <scroll-view scroll-y class="scan">
+        <!-- 帖子外观 -->
+        <view class="post" wx:for="{{post}}" wx:key="index" >
+            <view class="time">{{item.time}}</view>
+            <!-- 版块-内容 :标题，简介;点击进入帖子详情 -->
+            <view bindtap="click_detail" data-detail="{{item}}" class="content" data-index="{{index}}">
+                <!-- 内容-标题 -->
+                <text class="title">{{item.title}}
+                </text>
+                <!-- 内容-简介 :显示帖子部分内容，限制为三行 -->
+                <text class="intro">{{item.content}}
+                </text>
+            </view>
+            <!-- 版块-操作 :点赞、评论;点击进行相应的操作 -->
+            <view class="opera">
+                <!-- 操作-点赞:点击进行点赞 -->
+                <view class="zan">
+                  <image bindtap="zan" data-index="{{index}}" class="zan_img" src="{{item.zan.img}}" />
+                  <text class="zan_num">{{item.zan.num}}</text>
+                </view>
+                <!-- 操作-评论:点击进入帖子详情再评论 -->
+                <image bindtap="click_detail" data-detail="{{item}}" class="comment" src="/icons/评论.png" />
+            </view>
+        </view>
+
+    </scroll-view> 
+        
+    </view>
+    
+</view>

@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    search :[],
-    image:[],
-    height:0,
-    get:"",
+    search: [],
+    image: [],
+    height: 0,
+    get: "",
   },
 
   /**
@@ -20,78 +20,94 @@ Page({
       height: screenHeight - 380,
     })
   },
-  input(e)
-  {
-    this.data.get=e.detail.value;
+  input(e) {
+    this.data.get = e.detail.value;
     this.setData({
-      get:this.data.get
+      get: this.data.get
     })
   },
-  search()
-  {
-  	wx.cloud.database().collection('goods').where({
-      name:wx.cloud.database().RegExp({
-        regexp: this.data.get,
-        options:'i'
+  search() {
+    var that = this;
+    wx.cloud.database().collection('goods').where({
+      name: wx.cloud.database().RegExp({
+        regexp: that.data.get,
+        options: 'i'
       }),
-      deal:false
+      deal: false
     }).get()
-    .then(res=>{
-      console.log(res);
-      var fileList = [];
-      var search=[];
-      var n = res.data.length;
-      var i=0;
-      for(i = 0;i < n;i++)
-      {
-        var type = "";
-        var way = "";
-        var name = "";
-        if(res.data[i].type=='1')
-            {type="待出售";
-            way=res.data[i].special.money}
-        else if(res.data[i].type=='2')
-            {type="待交换";
-            way=res.data[i].special.item}
-        else if(res.data[i].type=='3')
-            {type="待出租";
-            way=res.data[i].special.money+'r /'+res.data[i].special.rent_time}
-        var S={'id':i,'name':res.data[i].name,'type':type,'way':way,'detail':res.data[i].detail,'contact':res.data[i].contact,'openid':res.data[i]._openid,'_id':res.data[i]._id};
-        search.push(S);
-        fileList.push(res.data[i].img[0]);
-        this.data.image.push(res.data[i].img)
-        console.log(this.data.image)
-     }
-    console.log(fileList);
-    for(var i=0;i< fileList.length;i++)
-    {
-      search[i]['img']=fileList[i];
-    }
-    // console.log(fileList);
-      // 根据图片fileID获取图片临时链接
-    //   wx.cloud.getTempFileURL({
-    //     fileList: fileList,
-    //     success: result => {
-    //       console.log(result.fileList);
-    //       for(var j = 0;j < result.fileList.length;j++){
-    //         search[j]["img"] = result.fileList[j].tempFileURL;
-    //       }
-          this.setData({
-            search:search,
-            image:this.data.image
-          })
-          console.log(this.data.search);
-    //     },
-    //     fail: console.error
-    //   })
-    });
+      .then(res => {
+        console.log(res);
+        var fileList = [];
+        var search = [];
+        var n = res.data.length;
+        var i = 0;
+        if(n==0)
+        {
+          wx.showToast({
+            title: '搜索为空',
+            icon: 'none',
+            duration: 2000, // 保留的时间，单位为毫秒
+            success: function () {
+              // 弹窗显示成功后的回调函数
+            }
+        })
+        }
+        for (i = 0; i < n; i++) {
+          var type = "";
+          var way = "";
+          var name = "";
+          var time="";
+          if (res.data[i].type == '1') {
+            type = "待出售";
+            way = res.data[i].special.money
+          }
+          else if (res.data[i].type == '2') {
+            type = "待交换";
+            way = res.data[i].special.item
+          }
+          else if (res.data[i].type == '3') {
+            type = "待出租";
+            way = res.data[i].special.money ;
+            time = res.data[i].special.rent_time
+          }
+          else if (res.data[i].type == '4')
+          {
+            type = "待赠送";
+          }
+          if(type == '待出租')
+          {
+            var S = { 'id': i, 'name': res.data[i].name, 'type': type, 'way': way,'time':time, 'detail': res.data[i].detail, 'contact': res.data[i].contact, 'openid': res.data[i]._openid, '_id': res.data[i]._id };
+          }
+          else
+          {var S = { 'id': i, 'name': res.data[i].name, 'type': type, 'way': way, 'detail': res.data[i].detail, 'contact': res.data[i].contact, 'openid': res.data[i]._openid, '_id': res.data[i]._id };}
+          console.log(S)
+          search.push(S);
+          fileList.push(res.data[i].img[0]);
+        }
+        console.log(fileList);
+     
+        // 根据图片fileID获取图片临时链接
+        wx.cloud.getTempFileURL({
+          fileList: fileList,
+          success: result => {
+            console.log(result.fileList);
+            for (var j = 0; j < result.fileList.length; j++) {
+              search[j]["img"] = result.fileList[j].tempFileURL;
+            }
+            this.setData({
+              search: search,
+              // image: this.data.image
+            })
+            console.log(this.data.search,9999);
+          },
+        })
+      });
   },
-  select:function(e)
-  {
-    var id=e.currentTarget.dataset.id;
+  select: function (e) {
+    var id = e.currentTarget.dataset.id;
     // var search=this.data.search;
     wx.navigateTo({
-      url: '/pages/packages_home/pages/display/display?information=' + JSON.stringify(this.data.search[id]) + '&image='+JSON.stringify(this.data.image[id])+'&in='+ true,
+      url: '/pages/packages_home/pages/display/display?information=' + JSON.stringify(this.data.search[id])+ '&in=' + true,
     });
   },
   /**

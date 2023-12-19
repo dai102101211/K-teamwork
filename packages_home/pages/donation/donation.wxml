@@ -38,7 +38,5 @@
 </view>
 </view>
 
-
-
 <!--确定，将数据后端-->
 <button class="ok" bindtap="ok">确定赠送</button>

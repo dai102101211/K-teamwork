@@ -25,12 +25,14 @@ change() {
       sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        that.data.imgs.push(res.tempFilePaths[0]);
-
-        that.setData({
-          imgs: that.data.imgs,
-          model:model
-        });
+        console.log(res.tempFilePaths.length)
+      for(var i=0;i<res.tempFilePaths.length;i++)
+      that.data.imgs.push(res.tempFilePaths[i]);
+      console.log(that.data.imgs)
+      that.setData({
+        imgs: that.data.imgs,
+        model:model
+      });
         that.uploadDetailImage();
       }
     })
@@ -45,6 +47,14 @@ change() {
         success(res){
           console.log("fileID=" + res.fileID);
           that.data.imageUrls.push(res.fileID);
+          wx.showToast({
+            title: '图片上传成功',
+            icon: 'none',
+            duration: 2000, // 保留的时间，单位为毫秒
+            success: function () {
+              // 弹窗显示成功后的回调函数
+            }
+          })
         }
       })
     }

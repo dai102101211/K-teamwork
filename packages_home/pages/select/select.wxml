@@ -24,6 +24,9 @@
 <view class="article">
 <view >{{item.name}}</view>
 <view>{{item.type}}:{{item.way}}</view>
+<view wx:if="{{item.type=='待出租'}}">
+  <view style="position:relative;top:10rpx" >出租时间：{{item.time}}</view>
+</view>
 </view>
 </view>
 </template>

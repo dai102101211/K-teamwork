@@ -25,7 +25,7 @@
     <view class="list">
       <!-- onload（）提出请求，获得数据 -->
       <view class="card" wx:for="{{order}}" wx:key="index">
-        <image src="{{item.good[0].img}}" data-index="{{index}}" mode="" bind:tap="showHidden" />
+        <image src="{{item.good[0].img[0]}}" data-index="{{index}}" mode="" bind:tap="showHidden" />
         <text>出售方：{{item.u_from[0].nickname}}</text>
         <text>接收方：{{item.u_to[0].nickname}}</text>
         <view class="chat">
@@ -34,13 +34,13 @@
         <view class="status" wx:if="{{item.u_from[0]._openid == user._openid}}">
           <text class="item {{ item.status === '1' ? 'active' : ''}}" data-id="1">物品未送出</text>
           <view class="f">丨</view>
-          <button data-id="3" data-index="{{index}}" bindtap='progress' class="item {{item.status === '3' ? 'activeButton' : 't'}}" disabled="{{item.status!=='2'}}">物品已送出</button>
+          <button data-id="3" data-index="{{index}}" bindtap='progress' class="item {{item.status === '3' ? 'activeButton' : 't'}}" disabled="{{item.status>'2'}}" data-item="{{item}}">物品已送出</button>
           <view class="f">丨</view>
           <text size="mini" class="item {{ item.status === '3' ? 'active' : ''}}" data-id="3"> 物品接收中</text>
           <view class="f">丨</view>
           <text size="mini" class="item {{ item.status === '4' ? 'active' : ''}}" data-id="4">物品已接收</text>
           <view class="f">丨</view>
-          <button size="mini" data-id="6" data-index="{{index}}" bindtap='progress' class="item {{item.status === '6' ? 'activeButton' : 't'}}" disabled="{{item.status!=='5'}}">支付完成</button>
+          <button size="mini" data-id="6" data-index="{{index}}" bindtap='progress' class="item {{item.status === '6' ? 'activeButton' : 't'}}" disabled="{{item.status<'4'||item.status>'5'}}" data-item="{{item}}">支付完成</button>
           <view class="f">丨</view>
           <text size="mini" class="item {{ item.status === '6' ? 'active' : ''}}" data-id="6">物品已售出</text>
         </view>
@@ -51,7 +51,7 @@
           <view class="f">丨</view>
           <text size="mini" class="item {{ item.status === '3' ? 'active' : ''}}" data-id="3"> 物品接收中</text>
           <view class="f">丨</view>
-          <button size="mini" data-id="5" data-index="{{index}}" bindtap='progress' class="item {{item.status === '5' ? 'activeButton' : 't'}}" disabled="{{item.status!='4'}}">物品已接收</button>
+          <button size="mini" data-id="5" data-index="{{index}}" bindtap='progress' class="item {{item.status === '5' ? 'activeButton' : 't'}}" disabled="{{item.status<'3'||item.status>'5'}}" data-item="{{item}}">物品已接收</button>
           <view class="f">丨</view>
           <text size="mini" class="item {{ item.status === '5' ? 'active' : ''}}" data-id="5">支付完成</text>
           <view class="f">丨</view>
@@ -63,10 +63,7 @@
 
   <view class="sellimg">
     <image src="https://img-community.csdnimg.cn/images/40e1d1e36f4b4804a88a8d213c166da2.png" alt="" />
-    <information isHidden="{{hide}}" message="{{User[In]}}">
+    <information isHidden="{{hide}}" message="{{order[In]}}">
     </information>
   </view>
-
-
-
 </view>

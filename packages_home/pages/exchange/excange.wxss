@@ -77,10 +77,9 @@
 
 /*确认信息*/
 .ok{
-  position:absolute;
-  bottom:5%;
-  left:50%;
-  transform: translate(-50%,0%);
+  position:relative;
+  top:800rpx;
+  width: 250rpx;
   background-color: #7CC083;
   color: white;
 }

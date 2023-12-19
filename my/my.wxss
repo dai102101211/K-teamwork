@@ -25,6 +25,12 @@
   margin: 20rpx;
   border-radius: 50%;
 }
+.userinfo-avatar > image{
+  width: 170rpx;
+  height: 170rpx;
+}
+
+
 .credibility{
   width: 480rpx;
   height: 40rpx;
@@ -137,7 +143,7 @@
 
 .rankinglistrole{
   position: relative;
-  left: -50rpx;
+  left: -60rpx;
 }
 
 
@@ -151,7 +157,7 @@
 .massage{
   font-size: 30rpx;
   position: relative;
-  left: -130rpx;
+  left: -150rpx;
 }
 
 /*底部*/
@@ -207,4 +213,66 @@
   position:absolute;
   left:78%;
   color: white;
+}
+
+.MessC {
+  position: fixed;
+  bottom: 76rpx;
+  left: 420rpx;
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+}
+
+.MessMy {
+  position: fixed;
+  bottom: 76rpx;
+  left: 640rpx;
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+}
+
+.MessM0 {
+  top:300rpx;
+  left:130rpx;
+  margin-right: 100rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.MessM1 {
+  top:300rpx;
+  left:310rpx;
+  margin-right: 100rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.MessM2 {
+  top:300rpx;
+  left:490rpx;
+  margin-right: 100rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.MessM3 {
+  top:300rpx;
+  left:670rpx;
+  margin-right: 100rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
 }
